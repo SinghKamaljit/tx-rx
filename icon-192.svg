@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <!-- Background -->
+  <rect width="192" height="192" rx="40" fill="#0A0E1A"/>
+  <!-- Outer pulse ring -->
+  <circle cx="96" cy="96" r="72" fill="none" stroke="#00D4FF" stroke-width="3" opacity="0.25"/>
+  <!-- Mid ring -->
+  <circle cx="96" cy="96" r="52" fill="none" stroke="#00D4FF" stroke-width="3" opacity="0.45"/>
+  <!-- Inner filled circle -->
+  <circle cx="96" cy="96" r="32" fill="rgba(0,212,255,0.1)" stroke="#00D4FF" stroke-width="3"/>
+  <!-- Centre dot -->
+  <circle cx="96" cy="96" r="12" fill="#00D4FF"/>
+  <!-- TX text -->
+  <text x="96" y="162" text-anchor="middle" font-family="monospace" font-size="22" font-weight="700" fill="#00D4FF" letter-spacing="4">TX_RX</text>
+</svg>

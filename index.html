@@ -8,9 +8,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <meta name="apple-mobile-web-app-title" content="TX_RX"/>
+<link rel="manifest" href="manifest.json"/>
+<link rel="apple-touch-icon" href="icon-192.svg"/>
 <title>TX_RX</title>
-
-<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiVFhfUlgiLCJzaG9ydF9uYW1lIjoiVFhfUlgiLCJzdGFydF91cmwiOiIuLyIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiMwQTBFMUEiLCJ0aGVtZV9jb2xvciI6IiMwQTBFMUEiLCJpY29ucyI6W3sic3JjIjoiZGF0YTppbWFnZS9zdmcreG1sLCUzQ3N2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxMDAgMTAwJyUzRSUzQ2NpcmNsZSBjeD0nNTAnIGN5PSc1MCcgcj0nNDUnIGZpbGw9JyMwQTBFMUEnIHN0cm9rZT0nJTIzMDBENEZGJyBzdHJva2Utd2lkdGg9JzQnLyUzRSUzQ2NpcmNsZSBjeD0nNTAnIGN5PSc1MCcgcj0nMTUnIGZpbGw9JyUyMzAwRDRGRicvJTNFJTNDL3N2ZyUzRSIsInNpemVzIjoiMTkyeDE5MiIsInR5cGUiOiJpbWFnZS9zdmcreG1sIn1dfQ=="/>
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap');
@@ -65,12 +65,7 @@
     z-index: 10;
     border-bottom: 1px solid var(--border);
   }
-  .logo {
-    font-family: var(--font-display);
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-  }
+  .logo { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: 0.08em; }
   .logo span { color: var(--cyan); }
   .header-status {
     font-family: var(--font-mono);
@@ -89,20 +84,10 @@
   @keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
 
   /* HOME */
-  .home-hero {
-    text-align: center;
-    padding: 32px 0 28px;
-  }
-  .signal-icon {
-    width: 72px; height: 72px;
-    margin: 0 auto 20px;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .signal-icon svg { width: 72px; height: 72px; }
-  .pulse-ring {
-    animation: pulseRing 2.4s ease-out infinite;
-    transform-origin: center;
-  }
+  .home-hero { text-align: center; padding: 32px 0 28px; }
+  .signal-icon { width:72px; height:72px; margin:0 auto 20px; display:flex; align-items:center; justify-content:center; }
+  .signal-icon svg { width:72px; height:72px; }
+  .pulse-ring { animation: pulseRing 2.4s ease-out infinite; transform-origin: center; }
   .pulse-ring:nth-child(2) { animation-delay: 0.6s; }
   .pulse-ring:nth-child(3) { animation-delay: 1.2s; }
   @keyframes pulseRing {
@@ -112,48 +97,38 @@
   }
   @media (prefers-reduced-motion: reduce) { .pulse-ring { animation: none; } }
 
-  .home-title {
-    font-family: var(--font-display);
-    font-size: 28px; font-weight: 700;
-    line-height: 1.2; margin-bottom: 10px;
-  }
-  .home-sub {
-    color: var(--muted); font-size: 14px;
-    line-height: 1.6; max-width: 280px; margin: 0 auto;
-  }
-  .home-actions {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 12px; margin-top: 28px;
-  }
+  .home-title { font-family:var(--font-display); font-size:28px; font-weight:700; line-height:1.2; margin-bottom:10px; }
+  .home-sub   { color:var(--muted); font-size:14px; line-height:1.6; max-width:280px; margin:0 auto; }
+
+  .home-actions { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:28px; }
   .action-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
+    background: var(--surface); border: 1px solid var(--border);
     border-radius: 16px; padding: 22px 16px 20px;
     text-align: center; cursor: pointer;
     transition: border-color 0.15s, background 0.15s, transform 0.1s;
     -webkit-tap-highlight-color: transparent;
   }
   .action-card:active { transform: scale(0.97); }
-  .action-card.primary { border-color: rgba(0,212,255,0.3); }
-  .action-card.primary:hover  { border-color: var(--cyan); background: rgba(0,212,255,0.05); }
-  .action-card.secondary:hover{ border-color: rgba(255,184,0,0.4); background: rgba(255,184,0,0.04); }
+  .action-card.primary   { border-color: rgba(0,212,255,0.3); }
+  .action-card.primary:hover   { border-color: var(--cyan); background: rgba(0,212,255,0.05); }
+  .action-card.secondary:hover { border-color: rgba(255,184,0,0.4); background: rgba(255,184,0,0.04); }
   .ac-icon  { font-size:28px; margin-bottom:10px; line-height:1; display:block; }
   .ac-label { font-family:var(--font-display); font-size:15px; font-weight:600; display:block; margin-bottom:4px; }
   .ac-desc  { font-size:12px; color:var(--muted); line-height:1.4; }
 
   .home-note {
-    text-align: center; margin-top: 28px; padding: 18px;
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 12px; font-size: 13px; color: var(--muted); line-height: 1.6;
+    text-align:center; margin-top:28px; padding:18px;
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:12px; font-size:13px; color:var(--muted); line-height:1.6;
   }
-  .home-note strong { color: var(--cyan); font-weight: 500; }
+  .home-note strong { color:var(--cyan); font-weight:500; }
 
   /* BACK + TITLE */
   .screen-back {
-    display: flex; align-items: center; gap: 10px;
-    margin-bottom: 24px; cursor: pointer;
-    color: var(--muted); font-size: 14px; font-weight: 500;
-    -webkit-tap-highlight-color: transparent; width: fit-content;
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:24px; cursor:pointer;
+    color:var(--muted); font-size:14px; font-weight:500;
+    -webkit-tap-highlight-color:transparent; width:fit-content;
   }
   .screen-back:active { color: var(--text); }
   .screen-title { font-family:var(--font-display); font-size:22px; font-weight:700; margin-bottom:4px; }
@@ -164,31 +139,29 @@
 
   /* BUTTONS */
   .btn {
-    display: flex; align-items: center; justify-content: center; gap: 8px;
-    width: 100%; padding: 15px 20px; border: none; border-radius: 12px;
-    font-family: var(--font-body); font-size: 15px; font-weight: 600;
-    cursor: pointer; transition: opacity 0.15s, transform 0.1s;
-    -webkit-tap-highlight-color: transparent;
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    width:100%; padding:15px 20px; border:none; border-radius:12px;
+    font-family:var(--font-body); font-size:15px; font-weight:600;
+    cursor:pointer; transition:opacity 0.15s, transform 0.1s;
+    -webkit-tap-highlight-color:transparent;
   }
   .btn:active   { transform: scale(0.98); }
-  .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
-  .btn-primary  { background: var(--cyan); color: #0A0E1A; }
-  .btn-primary:hover:not(:disabled) { opacity: 0.9; }
-  .btn-ghost    { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
-  .btn-ghost:hover:not(:disabled) { border-color: var(--cyan-dim); }
-  .btn-amber    { background: var(--amber); color: #0A0E1A; }
-  .btn-sm       { padding: 10px 16px; font-size: 13px; border-radius: 9px; }
-  .btn-row      { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+  .btn:disabled { opacity:0.4; cursor:not-allowed; transform:none; }
+  .btn-primary  { background:var(--cyan); color:#0A0E1A; }
+  .btn-primary:hover:not(:disabled) { opacity:0.9; }
+  .btn-ghost    { background:var(--surface2); color:var(--text); border:1px solid var(--border); }
+  .btn-ghost:hover:not(:disabled) { border-color:var(--cyan-dim); }
+  .btn-amber    { background:var(--amber); color:#0A0E1A; }
 
   /* FILE PICKER */
   .file-drop-area {
-    border: 2px dashed var(--border); border-radius: 14px;
-    padding: 40px 20px; text-align: center; cursor: pointer;
-    transition: border-color 0.15s, background 0.15s;
-    -webkit-tap-highlight-color: transparent;
+    border:2px dashed var(--border); border-radius:14px;
+    padding:40px 20px; text-align:center; cursor:pointer;
+    transition:border-color 0.15s, background 0.15s;
+    -webkit-tap-highlight-color:transparent;
   }
   .file-drop-area:hover, .file-drop-area.dragover {
-    border-color: var(--cyan); background: rgba(0,212,255,0.04);
+    border-color:var(--cyan); background:rgba(0,212,255,0.04);
   }
   .fda-icon { font-size:36px; display:block; margin-bottom:12px; }
   .fda-text { font-family:var(--font-display); font-size:16px; font-weight:600; margin-bottom:6px; }
@@ -196,9 +169,9 @@
 
   /* FILE INFO */
   .file-info {
-    display: flex; align-items: center; gap: 14px;
-    padding: 14px 16px; background: var(--surface2);
-    border-radius: 12px; border: 1px solid var(--border); margin-bottom: 16px;
+    display:flex; align-items:center; gap:14px;
+    padding:14px 16px; background:var(--surface2);
+    border-radius:12px; border:1px solid var(--border); margin-bottom:16px;
   }
   .fi-icon    { font-size:28px; flex-shrink:0; }
   .fi-details { flex:1; min-width:0; }
@@ -206,16 +179,15 @@
   .fi-meta    { font-size:12px; color:var(--muted); margin-top:2px; }
 
   /* PROGRESS */
-  .progress-wrap  { margin: 16px 0; }
+  .progress-wrap  { margin:16px 0; }
   .progress-bar   { height:6px; background:var(--border); border-radius:3px; overflow:hidden; margin-bottom:8px; }
   .progress-fill  { height:100%; background:linear-gradient(90deg,var(--cyan-dim),var(--cyan)); border-radius:3px; transition:width 0.3s ease; width:0%; }
   .progress-label { display:flex; justify-content:space-between; font-size:12px; color:var(--muted); }
 
   /* TRANSFER ID */
   .transfer-id-display {
-    background: rgba(0,212,255,0.06);
-    border: 1px solid rgba(0,212,255,0.25);
-    border-radius: 14px; padding: 22px 20px; text-align: center;
+    background:rgba(0,212,255,0.06); border:1px solid rgba(0,212,255,0.25);
+    border-radius:14px; padding:22px 20px; text-align:center;
   }
   .tid-label { font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--cyan); margin-bottom:12px; display:block; }
   .tid-code  { font-family:var(--font-mono); font-size:22px; font-weight:600; color:var(--cyan); letter-spacing:0.18em; word-break:break-all; line-height:1.4; text-shadow:0 0 20px rgba(0,212,255,0.3); }
@@ -232,17 +204,17 @@
     transition:border-color 0.15s; -webkit-appearance:none;
   }
   .input-field::placeholder { color:var(--muted); letter-spacing:0.05em; text-transform:none; font-size:15px; }
-  .input-field:focus { border-color: var(--cyan); }
+  .input-field:focus { border-color:var(--cyan); }
 
   /* DOWNLOAD CARD */
   .download-card {
-    background: var(--surface2); border: 1px solid rgba(0,212,255,0.2);
-    border-radius: 14px; padding: 20px; margin-bottom: 16px;
+    background:var(--surface2); border:1px solid rgba(0,212,255,0.2);
+    border-radius:14px; padding:20px; margin-bottom:16px;
   }
-  .dc-row   { display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid var(--border); font-size:14px; }
+  .dc-row { display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid var(--border); font-size:14px; }
   .dc-row:last-child { border-bottom:none; }
-  .dc-key   { color:var(--muted); font-size:12px; font-weight:500; }
-  .dc-val   { font-weight:600; text-align:right; max-width:60%; word-break:break-word; }
+  .dc-key { color:var(--muted); font-size:12px; font-weight:500; }
+  .dc-val { font-weight:600; text-align:right; max-width:60%; word-break:break-word; }
 
   /* ABOUT */
   .about-section    { margin-bottom:20px; }
@@ -256,7 +228,6 @@
   .alert-icon { flex-shrink:0; font-size:16px; }
   .alert-red   { background:rgba(255,71,87,0.1);  border:1px solid rgba(255,71,87,0.25);  color:#ff8a96; }
   .alert-green { background:rgba(0,212,138,0.1);  border:1px solid rgba(0,212,138,0.25);  color:#4dffd0; }
-  .alert-amber { background:rgba(255,184,0,0.1);  border:1px solid rgba(255,184,0,0.25);  color:#ffd166; }
 
   /* BOTTOM NAV */
   .bottom-nav {
@@ -272,7 +243,7 @@
     transition:color 0.15s; -webkit-tap-highlight-color:transparent;
   }
   .nav-item svg { width:22px; height:22px; }
-  .nav-item.active { color: var(--cyan); }
+  .nav-item.active { color:var(--cyan); }
 
   .divider { border:none; border-top:1px solid var(--border); margin:20px 0; }
 
@@ -289,11 +260,7 @@
   #toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
 
   /* SPINNER */
-  .spinner {
-    width:18px; height:18px;
-    border:2px solid rgba(10,14,26,0.3); border-top-color:#0A0E1A;
-    border-radius:50%; animation:spin 0.7s linear infinite;
-  }
+  .spinner { width:18px; height:18px; border:2px solid rgba(10,14,26,0.3); border-top-color:#0A0E1A; border-radius:50%; animation:spin 0.7s linear infinite; }
   .spinner-cyan { border-color:rgba(0,212,255,0.2); border-top-color:var(--cyan); }
   @keyframes spin { to { transform:rotate(360deg); } }
 </style>
@@ -318,9 +285,8 @@
         </svg>
       </div>
       <h1 class="home-title">Transfer anything.<br/>Simple and free.</h1>
-      <p class="home-sub">Upload any file. Share a 16-character Transfer ID. The other person downloads it. Done.</p>
+      <p class="home-sub">Upload any file. Share a 16-character Transfer ID. The other person downloads it.</p>
     </div>
-
     <div class="home-actions">
       <div class="action-card primary" onclick="showScreen('send')" role="button" tabindex="0">
         <span class="ac-icon">📤</span>
@@ -333,7 +299,6 @@
         <span class="ac-desc">Enter a Transfer ID to download</span>
       </div>
     </div>
-
     <div class="home-note">
       <strong>Any file type</strong> · <strong>Any size</strong> · <strong>No account needed</strong>
     </div>
@@ -348,7 +313,6 @@
     <h2 class="screen-title">Send File</h2>
     <p class="screen-sub">Select any file. You'll get a Transfer ID to share.</p>
 
-    <!-- File picker -->
     <div id="filePicker">
       <div class="file-drop-area" id="dropArea" onclick="document.getElementById('fileInput').click()">
         <input type="file" id="fileInput" accept="*/*" style="display:none" onchange="handleFileSelect(event)"/>
@@ -358,7 +322,6 @@
       </div>
     </div>
 
-    <!-- File selected -->
     <div id="filePreview" style="display:none">
       <div class="file-info">
         <span class="fi-icon" id="fileIcon">📄</span>
@@ -368,7 +331,6 @@
         </div>
         <span style="cursor:pointer;color:var(--muted);font-size:20px;padding:4px" onclick="resetSend()">✕</span>
       </div>
-
       <div id="uploadProgressWrap" style="display:none" class="progress-wrap">
         <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
         <div class="progress-label">
@@ -376,22 +338,18 @@
           <span id="progressPct">0%</span>
         </div>
       </div>
-
       <button class="btn btn-primary" id="uploadBtn" onclick="startUpload()">
         <span>Upload &amp; Get Transfer ID</span>
       </button>
     </div>
 
-    <!-- Upload success -->
     <div id="uploadSuccess" style="display:none">
       <div class="alert alert-green"><span class="alert-icon">✓</span> File uploaded successfully.</div>
-
       <div class="transfer-id-display">
         <span class="tid-label">Your Transfer ID</span>
         <div class="tid-code" id="generatedTID">—</div>
         <div class="tid-note">Share this ID with the recipient</div>
       </div>
-
       <button class="btn btn-primary" style="margin-top:16px" onclick="shareTransfer()">
         📤 Share Transfer ID
       </button>
@@ -400,7 +358,6 @@
           Copy ID only
         </span>
       </div>
-
       <hr class="divider"/>
       <button class="btn btn-ghost" onclick="resetSend()">Send Another File</button>
     </div>
@@ -414,20 +371,13 @@
     </div>
     <h2 class="screen-title">Receive File</h2>
     <p class="screen-sub">Enter the 16-character Transfer ID shared with you.</p>
-
     <div class="card">
       <div class="input-group">
         <label class="input-label" for="tidInput">Transfer ID</label>
         <input
-          class="input-field"
-          id="tidInput"
-          type="text"
-          maxlength="16"
+          class="input-field" id="tidInput" type="text" maxlength="16"
           placeholder="TX7K9M2P4R8D1Q6Z"
-          autocomplete="off"
-          autocorrect="off"
-          spellcheck="false"
-          inputmode="text"
+          autocomplete="off" autocorrect="off" spellcheck="false" inputmode="text"
           oninput="tidInputHandler(this)"
         />
       </div>
@@ -435,9 +385,7 @@
         <span>Validate Transfer ID</span>
       </button>
     </div>
-
     <div id="receiveError" style="display:none"></div>
-
     <div id="downloadPanel" style="display:none">
       <div class="download-card">
         <div class="dc-row"><span class="dc-key">File Name</span><span class="dc-val" id="dlFileName">—</span></div>
@@ -445,9 +393,7 @@
         <div class="dc-row"><span class="dc-key">Type</span><span class="dc-val" id="dlFileType">—</span></div>
         <div class="dc-row"><span class="dc-key">Uploaded</span><span class="dc-val" id="dlUploadDate">—</span></div>
       </div>
-      <button class="btn btn-amber" id="downloadBtn" onclick="downloadFile()">
-        ⬇ Download File
-      </button>
+      <button class="btn btn-amber" onclick="downloadFile()">⬇ Download File</button>
     </div>
   </section>
 
@@ -459,26 +405,25 @@
     </div>
     <h2 class="screen-title">About TX_RX</h2>
     <p class="screen-sub">Simple file transfer. No frills.</p>
-
     <div class="about-section">
       <h3>How it works</h3>
-      <p>Upload any file and receive a 16-character Transfer ID. Share that ID with anyone. They enter it here to download the file. No account, no sign-up, no expiry enforced automatically.</p>
+      <p>Upload any file and receive a 16-character Transfer ID. Share that ID with anyone. They enter it here to download the file. No account, no sign-up.</p>
     </div>
     <div class="about-section">
       <h3>What can I send?</h3>
-      <p>Any file type — documents, PDFs, images, videos, audio, ZIPs, APKs. Any size. TX_RX does not restrict file type or impose a size cap.</p>
+      <p>Any file type — documents, PDFs, images, videos, audio, ZIPs, APKs. No size cap enforced by the app.</p>
     </div>
     <div class="about-section">
       <h3>Storage</h3>
-      <p>Files are stored on Cloudinary. The Transfer ID lookup is handled by Firebase Firestore. No personal data is collected.</p>
+      <p>Files are stored on Cloudinary. Transfer ID lookup is handled by Firebase Realtime Database. No personal data is collected.</p>
     </div>
     <div class="about-section">
       <h3>Security</h3>
       <ul>
         <li>Randomised 16-character Transfer IDs</li>
+        <li>Collision-checked before use</li>
         <li>Files not indexed or searchable</li>
         <li>Only accessible via exact Transfer ID</li>
-        <li>Anonymous Firebase Auth protects Firestore writes</li>
       </ul>
     </div>
     <div class="about-section">
@@ -488,7 +433,6 @@
   </section>
 </div>
 
-<!-- Bottom Nav -->
 <nav class="bottom-nav">
   <div class="nav-item active" id="nav-home" onclick="showScreen('home')">
     <svg viewBox="0 0 22 22" fill="none"><path d="M3 9.5L11 3L19 9.5V19H14V14H8V19H3V9.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
@@ -510,38 +454,38 @@
 
 <div id="toast"></div>
 
-<!-- Firebase (Firestore + Auth only — no Storage) -->
+<!-- Firebase Realtime Database + Auth (compat) -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
 <script>
 // ═══════════════════════════════════════════════
-// CONFIG — fill in your values
+// CONFIG
 // ═══════════════════════════════════════════════
 const FIREBASE_CONFIG = {
-  apiKey:            "YOUR_API_KEY",
-  authDomain:        "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId:         "YOUR_PROJECT_ID",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId:             "YOUR_APP_ID"
-  // storageBucket NOT needed — we use Cloudinary
+  apiKey:            "AIzaSyBqM3vx05849uhXwYrhCDUfwZoqN2hEo-I",
+  authDomain:        "tx-rx-4bccb.firebaseapp.com",
+  projectId:         "tx-rx-4bccb",
+  databaseURL:       "https://tx-rx-4bccb-default-rtdb.asia-southeast1.firebasedatabase.app",
+  messagingSenderId: "1018604869702",
+  appId:             "1:1018604869702:web:8f3f6537713ee14413d247"
 };
 
 const CLOUDINARY_CLOUD  = "dqwaiio4d";
 const CLOUDINARY_PRESET = "transfer-receive";
-// resource_type=raw is enforced in the upload URL below — handles ALL file types
+const CLOUDINARY_URL    = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD}/raw/upload`;
 
 const TID_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // no I O 0 1
 
 // ═══════════════════════════════════════════════
-// FIREBASE INIT
+// FIREBASE INIT — Realtime Database
 // ═══════════════════════════════════════════════
 let db, auth, currentUser;
 
 try {
   firebase.initializeApp(FIREBASE_CONFIG);
-  db   = firebase.firestore();
+  db   = firebase.database();
   auth = firebase.auth();
   auth.signInAnonymously()
     .then(u => { currentUser = u.user; })
@@ -573,11 +517,25 @@ function genTID() {
   return id;
 }
 
+async function genUniqueTID() {
+  let tid = genTID();
+  try {
+    let snap = await db.ref('transfers/' + tid).get();
+    while (snap.exists()) {
+      tid  = genTID();
+      snap = await db.ref('transfers/' + tid).get();
+    }
+  } catch(e) {
+    console.warn('TID uniqueness check failed, proceeding:', e);
+  }
+  return tid;
+}
+
 function fmtSize(bytes) {
   if (!bytes) return '—';
-  if (bytes < 1024)        return bytes + ' B';
-  if (bytes < 1024*1024)   return (bytes/1024).toFixed(1) + ' KB';
-  if (bytes < 1024**3)     return (bytes/(1024*1024)).toFixed(2) + ' MB';
+  if (bytes < 1024)      return bytes + ' B';
+  if (bytes < 1024*1024) return (bytes/1024).toFixed(1) + ' KB';
+  if (bytes < 1024**3)   return (bytes/(1024*1024)).toFixed(2) + ' MB';
   return (bytes/(1024**3)).toFixed(2) + ' GB';
 }
 
@@ -589,14 +547,14 @@ function fmtDate(ts) {
 }
 
 function fileIcon(type) {
-  if (!type)                            return '📄';
-  if (type.startsWith('image/'))        return '🖼️';
-  if (type.startsWith('video/'))        return '🎬';
-  if (type.startsWith('audio/'))        return '🎵';
-  if (type === 'application/pdf')       return '📕';
+  if (!type)                              return '📄';
+  if (type.startsWith('image/'))          return '🖼️';
+  if (type.startsWith('video/'))          return '🎬';
+  if (type.startsWith('audio/'))          return '🎵';
+  if (type === 'application/pdf')         return '📕';
   if (type.includes('zip') || type.includes('rar') || type.includes('7z')) return '📦';
-  if (type.includes('word') || type.includes('document'))  return '📝';
-  if (type.includes('sheet') || type.includes('excel'))    return '📊';
+  if (type.includes('word') || type.includes('document')) return '📝';
+  if (type.includes('sheet') || type.includes('excel'))   return '📊';
   if (type.includes('apk') || type.includes('android'))   return '📱';
   return '📄';
 }
@@ -628,7 +586,6 @@ function handleFileSelect(e) {
   document.getElementById('filePreview').style.display = 'block';
 }
 
-// Drag-and-drop (desktop/tablet)
 const dropArea = document.getElementById('dropArea');
 if (dropArea) {
   dropArea.addEventListener('dragover',  e => { e.preventDefault(); dropArea.classList.add('dragover'); });
@@ -644,7 +601,7 @@ if (dropArea) {
 }
 
 // ═══════════════════════════════════════════════
-// SEND — upload to Cloudinary then save to Firestore
+// SEND — upload to Cloudinary, save to RTDB
 // ═══════════════════════════════════════════════
 async function startUpload() {
   if (!selectedFile) return;
@@ -671,43 +628,26 @@ async function startUpload() {
     }
   }
 
-  // Collision-safe: regenerate until we find an unused ID
-  let tid = genTID();
-  try {
-    let snap = await db.collection('transfers').doc(tid).get();
-    while (snap.exists) {
-      tid  = genTID();
-      snap = await db.collection('transfers').doc(tid).get();
-    }
-  } catch(e) {
-    // If check fails, proceed anyway — collision is astronomically unlikely
-    console.warn('TID uniqueness check failed, proceeding:', e);
-  }
+  // Collision-safe unique TID
+  btn.innerHTML = '<div class="spinner"></div><span>Generating ID…</span>';
+  const tid = await genUniqueTID();
 
-  // Build FormData for Cloudinary
-  // resource_type=raw in the URL accepts ALL file types — images, video, docs, zip, apk, anything
   const formData = new FormData();
   formData.append('file',          selectedFile);
   formData.append('upload_preset', CLOUDINARY_PRESET);
   formData.append('public_id',     'txrx/' + tid);
-  // Note: 'use_filename' and display name are handled by preset settings
 
   progressWrap.style.display = 'block';
   btn.innerHTML = '<div class="spinner"></div><span>Uploading…</span>';
 
-  // Use XMLHttpRequest for upload progress on mobile
-  // resource_type=raw in URL → Cloudinary accepts any file type regardless of MIME
-  const uploadURL = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD}/raw/upload`;
-
   const xhr = new XMLHttpRequest();
-  xhr.open('POST', uploadURL);
+  xhr.open('POST', CLOUDINARY_URL);
 
   xhr.upload.addEventListener('progress', e => {
     if (e.lengthComputable) {
       const pct = Math.round((e.loaded / e.total) * 100);
       progressFill.style.width = pct + '%';
       progressPct.textContent  = pct + '%';
-      progressStatus.textContent = 'Uploading…';
     }
   });
 
@@ -715,28 +655,25 @@ async function startUpload() {
     if (xhr.status >= 200 && xhr.status < 300) {
       let result;
       try { result = JSON.parse(xhr.responseText); }
-      catch(e) {
-        onUploadError('Unexpected response from storage.');
-        return;
-      }
+      catch(e) { onUploadError('Unexpected response from Cloudinary.'); return; }
 
-      const downloadURL = result.secure_url;
-      const now = Date.now();
-
-      progressFill.style.width  = '100%';
-      progressPct.textContent   = '100%';
+      progressFill.style.width   = '100%';
+      progressPct.textContent    = '100%';
       progressStatus.textContent = 'Saving…';
 
+      const now = Date.now();
+
       try {
-        await db.collection('transfers').doc(tid).set({
+        // Save to Realtime Database
+        await db.ref('transfers/' + tid).set({
           tid,
-          fileName:    selectedFile.name,
-          fileSize:    selectedFile.size,
-          fileType:    selectedFile.type || 'application/octet-stream',
+          fileName:     selectedFile.name,
+          fileSize:     selectedFile.size,
+          fileType:     selectedFile.type || 'application/octet-stream',
           cloudinaryId: result.public_id,
-          downloadURL,
-          uploadedBy:  currentUser ? currentUser.uid : 'anon',
-          uploadedAt:  now
+          downloadURL:  result.secure_url,
+          uploadedBy:   currentUser ? currentUser.uid : 'anon',
+          uploadedAt:   now
         });
 
         lastTID = tid;
@@ -750,25 +687,24 @@ async function startUpload() {
         }, 400);
 
       } catch(e) {
-        console.error('Firestore error:', e);
+        console.error('RTDB write error:', e);
         showToast('Upload done but record save failed. Try again.');
         btn.disabled = false;
         btn.innerHTML = '<span>Retry</span>';
       }
 
     } else {
-      let errMsg = 'Upload failed.';
+      let msg = 'Upload failed.';
       try {
-        const errBody = JSON.parse(xhr.responseText);
-        if (errBody.error && errBody.error.message) errMsg = errBody.error.message;
+        const body = JSON.parse(xhr.responseText);
+        if (body.error?.message) msg = body.error.message;
       } catch(_) {}
-      onUploadError(errMsg);
+      onUploadError(msg);
     }
   });
 
   xhr.addEventListener('error', () => onUploadError('Network error. Check connection.'));
   xhr.addEventListener('abort', () => onUploadError('Upload cancelled.'));
-
   xhr.send(formData);
 
   function onUploadError(msg) {
@@ -784,18 +720,24 @@ async function startUpload() {
   }
 }
 
+// ═══════════════════════════════════════════════
+// COPY + SHARE
+// ═══════════════════════════════════════════════
 function copyTID() {
   if (!lastTID) return;
   if (navigator.clipboard) {
-    navigator.clipboard.writeText(lastTID).then(() => showToast('✓ Transfer ID copied'));
+    navigator.clipboard.writeText(lastTID)
+      .then(() => showToast('✓ Transfer ID copied'))
+      .catch(() => showToast('⚠ Could not copy'));
   } else {
     const ta = document.createElement('textarea');
     ta.value = lastTID;
+    ta.style.cssText = 'position:fixed;opacity:0';
     document.body.appendChild(ta);
     ta.select();
-    document.execCommand('copy');
+    const ok = document.execCommand('copy');
     document.body.removeChild(ta);
-    showToast('✓ Transfer ID copied');
+    showToast(ok ? '✓ Transfer ID copied' : '⚠ Could not copy');
   }
 }
 
@@ -811,59 +753,47 @@ async function shareTransfer() {
     } else {
       const ta = document.createElement('textarea');
       ta.value = lastTID;
-      ta.style.position = 'fixed';
-      ta.style.opacity  = '0';
+      ta.style.cssText = 'position:fixed;opacity:0';
       document.body.appendChild(ta);
       ta.select();
       copied = document.execCommand('copy');
       document.body.removeChild(ta);
     }
-  } catch(_) { /* copy failed silently */ }
+  } catch(_) {}
 
-  // Then try native share sheet
   if (navigator.share) {
     try {
       await navigator.share({
         title: 'TX_RX Transfer ID',
         text:  `TX_RX Transfer ID: ${lastTID}\n\nOpen TX_RX and enter this ID to download the file.`
       });
-      // Share completed — no toast needed, share sheet is its own confirmation
+      // Share sheet closed successfully — no extra toast needed
       if (!copied) showToast('⚠ Could not copy — share manually');
     } catch(e) {
-      // User cancelled share sheet — that's fine, just confirm copy
-      if (e.name !== 'AbortError') {
-        showToast(copied ? '✓ ID copied' : '⚠ Share failed');
-      } else {
+      if (e.name === 'AbortError') {
+        // User dismissed share sheet — confirm copy quietly
         if (copied) showToast('✓ ID copied to clipboard');
+      } else {
+        showToast(copied ? '✓ ID copied' : '⚠ Share failed');
       }
     }
   } else {
-    // No share API — desktop fallback
+    // Desktop — no share API
     showToast(copied ? '✓ Transfer ID copied' : '⚠ Could not copy — try Copy ID below');
-  }
-}
-
-function shareTID() {
-  if (!lastTID) return;
-  const text = `TX_RX Transfer ID: ${lastTID}\n\nOpen TX_RX and enter this ID to download the file.`;
-  if (navigator.share) {
-    navigator.share({ title: 'TX_RX Transfer ID', text }).catch(() => {});
-  } else {
-    copyTID();
   }
 }
 
 function resetSend() {
   selectedFile = null;
   lastTID = '';
-  document.getElementById('fileInput').value = '';
-  document.getElementById('filePicker').style.display       = 'block';
-  document.getElementById('filePreview').style.display      = 'none';
+  document.getElementById('fileInput').value                  = '';
+  document.getElementById('filePicker').style.display         = 'block';
+  document.getElementById('filePreview').style.display        = 'none';
   document.getElementById('uploadProgressWrap').style.display = 'none';
-  document.getElementById('progressFill').style.width       = '0%';
-  document.getElementById('uploadSuccess').style.display    = 'none';
+  document.getElementById('progressFill').style.width         = '0%';
+  document.getElementById('uploadSuccess').style.display      = 'none';
   const btn = document.getElementById('uploadBtn');
-  btn.disabled = false;
+  btn.disabled  = false;
   btn.innerHTML = '<span>Upload &amp; Get Transfer ID</span>';
   document.getElementById('headerStatus').textContent = '● READY';
 }
@@ -903,20 +833,21 @@ async function validateTransfer() {
   }
 
   try {
-    const snap = await db.collection('transfers').doc(tid).get();
+    // Realtime Database read
+    const snap = await db.ref('transfers/' + tid).get();
 
-    if (!snap.exists) {
+    if (!snap.exists()) {
       showErr('Transfer ID not found. Please check and try again.');
       return;
     }
 
-    const data = snap.data();
+    const data = snap.val();
     downloadURL_cached = data.downloadURL;
     dlFileName_cached  = data.fileName;
 
-    document.getElementById('dlFileName').textContent   = data.fileName  || '—';
+    document.getElementById('dlFileName').textContent   = data.fileName   || '—';
     document.getElementById('dlFileSize').textContent   = fmtSize(data.fileSize);
-    document.getElementById('dlFileType').textContent   = data.fileType  || '—';
+    document.getElementById('dlFileType').textContent   = data.fileType   || '—';
     document.getElementById('dlUploadDate').textContent = fmtDate(data.uploadedAt);
 
     document.getElementById('downloadPanel').style.display = 'block';
@@ -924,7 +855,7 @@ async function validateTransfer() {
     btn.innerHTML = '<span>Validate Transfer ID</span>';
 
   } catch(e) {
-    console.error('Validate error:', e);
+    console.error('RTDB read error:', e);
     showErr('Could not reach server. Check your connection.');
   }
 }
@@ -946,29 +877,7 @@ function downloadFile() {
 // SERVICE WORKER — offline shell
 // ═══════════════════════════════════════════════
 if ('serviceWorker' in navigator) {
-  const swCode = `
-const CACHE    = 'txrx-v2';
-const SHELL_URL = self.location.href.replace(/\/[^\/]*$/, '/').replace('blob:', '');
-
-self.addEventListener('install', e =>
-  e.waitUntil(
-    caches.open(CACHE).then(c => c.add(SHELL_URL).catch(() => {}))
-  )
-);
-self.addEventListener('activate', e =>
-  e.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
-    )
-  )
-);
-self.addEventListener('fetch', e => {
-  if (e.request.method !== 'GET') return;
-  e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
-});
-  `;
-  const blob = new Blob([swCode], { type: 'application/javascript' });
-  navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(() => {});
+  navigator.serviceWorker.register('./sw.js').catch(() => {});
 }
 </script>
 </body>
